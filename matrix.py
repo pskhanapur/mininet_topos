@@ -1,13 +1,12 @@
 """Custom topology example
-
 Creates a matrix of switches with four host connected to each edge
 
-2x2 matrix
+e.g. 2x2 matrix
    host --- switch --- switch --- host
             |             |
    host --- switch --- switch --- host
-
-3x3 matrix
+   
+e.g. 3x3 matrix
    host --- switch --- switch --- switch --- host
               |           |         |
             switch --- switch --- switch 
@@ -16,6 +15,8 @@ Creates a matrix of switches with four host connected to each edge
 
 Adding the 'topos' dict with a key/value pair to generate our newly defined
 topology enables one to pass in '--topo=matrix,2' from the command line.
+Created by Prasanna Khanapur (pskhanapur@gmail.com). 
+Feel free to contact creator for bug reporting, enhancements etc..
 """
 
 from mininet.topo import Topo
