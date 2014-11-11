@@ -31,11 +31,13 @@ class Matrix( Topo ):
         Topo.__init__( self )
         self.n = n
 
+
         # Add hosts and switches
-        #leftTopHost = self.addHost( 'h1' )
-        #rightTopHost = self.addHost( 'h2' )
-        #leftBottomHost = self.addHost( 'h3' )
-        #rightBottomHost = self.addHost( 'h4' )
+        leftTopHost = self.addHost( 'h1' )
+        rightTopHost = self.addHost( 'h2' )
+        leftBottomHost = self.addHost( 'h3' )
+        rightBottomHost = self.addHost( 'h4' )
+
 
         switches = []
         for i in range(1,n+1):
@@ -55,6 +57,12 @@ class Matrix( Topo ):
                 firstswitch = 's'+ str(j+((i-1)*n))
                 secondswitch = 's'+ str(j+n+((i-1)*n))
                 self.addLink(firstswitch,secondswitch)
+
+        # Add links
+        self.addLink( leftTopHost, 's1' )
+        self.addLink( rightTopHost, 's'+ str(n))
+        self.addLink( leftBottomHost, 's'+ str(n*n-n+1))
+        self.addLink( rightBottomHost, 's' + str(n*n))
 
 
 topos = { 'matrix': ( lambda n: Matrix(n) ) }
